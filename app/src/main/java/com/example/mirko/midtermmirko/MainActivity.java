@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements Fragment1.FragmentListener{
+public class MainActivity extends AppCompatActivity implements Fragment1.Activity{
 
     private Button Comment;
     private Button Contact;

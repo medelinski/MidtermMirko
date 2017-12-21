@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
+
+import java.nio.file.attribute.PosixFilePermissions;
 import java.util.zip.Inflater;
 
 public class Fragment1 extends Fragment {
@@ -25,19 +27,32 @@ public class Fragment1 extends Fragment {
     private EditText Name;
     private EditText Comment;
 
-    FragmentListener activityCommander;
+    //FragmentListener activityCommander;
+    Activity a;
 
-    public interface  FragmentListener{
+    public interface  Activity{
         public void addComment(String name, String comment);
     }
 
-   @Override
+/*   @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
             activityCommander = (FragmentListener) activity;
         }catch(ClassCastException e){
                 throw new  ClassCastException(activity.toString());
+        }
+    }*/
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+
+        //Activity a;
+
+        if (context instanceof Activity) {
+            a = (Activity) context;
         }
     }
 
@@ -50,17 +65,17 @@ public class Fragment1 extends Fragment {
         Name = (EditText)view.findViewById(R.id.txtName);
         Comment = (EditText)view.findViewById(R.id.txtComment);
 
-        Submit.setOnClickListener(new View.OnClickListener() {
+/*        Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clicked(view);
             }
-        });
+        });*/
 
         return view;
     }
 
     public void clicked (View view){
-        activityCommander.addComment(Name.getText().toString(), Comment.getText().toString());
+        a.addComment(Name.getText().toString(), Comment.getText().toString());
     }
 }
