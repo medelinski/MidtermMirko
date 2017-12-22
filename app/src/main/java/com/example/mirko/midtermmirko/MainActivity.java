@@ -18,17 +18,6 @@ public class MainActivity extends AppCompatActivity implements Fragment1.Activit
     private EditText Name;
 
     @Override
-    public void addComment(String name, String comment) {
-        Fragment1 fragOne = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.fragment9);
-        ListView listView = (ListView) findViewById(R.id.lstComments);
-        TextView textView = (TextView)findViewById(R.id.txtTest);
-        //listView.setText(name.toString());
-        textView.setText(name+comment);
-
-        //fragOne.setText(name,comment);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -45,10 +34,27 @@ public class MainActivity extends AppCompatActivity implements Fragment1.Activit
                 startActivity(intent);
             }
         });
+        Contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                startActivity(callIntent);
+            }
+        });
 
     }
+    @Override
+    public void addComment(String name, String comment) {
+        Fragment1 fragOne = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.fragment9);
+        ListView listView = (ListView) findViewById(R.id.lstComments);
+        TextView textView = (TextView)findViewById(R.id.txtTest);
+        //listView.setText(name.toString());
 
-/*    public void setText(String name, String Comment){
+        //fragOne.setText(name,comment);
+    }
+
+   public void setListText(String name, String comment){
         textView.setText(name);
-    }*/
+    }
 }

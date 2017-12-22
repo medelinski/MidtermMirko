@@ -29,10 +29,8 @@ public class Fragment1 extends Fragment {
 
     //FragmentListener activityCommander;
     Activity a;
+    //private OnItemSelectedListener listener;
 
-    public interface  Activity{
-        public void addComment(String name, String comment);
-    }
 
 /*   @Override
     public void onAttach(Activity activity) {
@@ -50,13 +48,18 @@ public class Fragment1 extends Fragment {
 
 
         //Activity a;
-
+/*        if (context instanceof OnItemSelectedListener) {
+            listener = (OnItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implemenet MyListFragment.OnItemSelectedListener");
+        }*/
         if (context instanceof Activity) {
             a = (Activity) context;
         }
     }
 
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment1, container, false);
@@ -73,6 +76,10 @@ public class Fragment1 extends Fragment {
         });
 
         return view;
+    }
+
+    public interface  Activity{
+        public void addComment(String name, String comment);
     }
 
     public void clicked (View view){
