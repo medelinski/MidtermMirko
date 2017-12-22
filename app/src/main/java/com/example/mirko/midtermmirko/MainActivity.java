@@ -15,13 +15,17 @@ public class MainActivity extends AppCompatActivity implements Fragment1.Activit
     private Button Comment;
     private Button Contact;
     private TextView textView;
+    private EditText Name;
 
     @Override
     public void addComment(String name, String comment) {
+        Fragment1 fragOne = (Fragment1) getSupportFragmentManager().findFragmentById(R.id.fragment9);
         ListView listView = (ListView) findViewById(R.id.lstComments);
-        TextView textView = (TextView) findViewById(R.id.txtTest);
+        TextView textView = (TextView)findViewById(R.id.txtTest);
         //listView.setText(name.toString());
-        textView.setText(name);
+        textView.setText(name+comment);
+
+        //fragOne.setText(name,comment);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements Fragment1.Activit
         Comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), "Mirko Edelinski", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Mirko Edelinski", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent (MainActivity.this,SecondActivity.class);
                 startActivity(intent);
@@ -43,4 +47,8 @@ public class MainActivity extends AppCompatActivity implements Fragment1.Activit
         });
 
     }
+
+/*    public void setText(String name, String Comment){
+        textView.setText(name);
+    }*/
 }

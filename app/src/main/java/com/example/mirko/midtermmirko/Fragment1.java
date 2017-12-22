@@ -65,12 +65,12 @@ public class Fragment1 extends Fragment {
         Name = (EditText)view.findViewById(R.id.txtName);
         Comment = (EditText)view.findViewById(R.id.txtComment);
 
-/*        Submit.setOnClickListener(new View.OnClickListener() {
+        Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clicked(view);
             }
-        });*/
+        });
 
         return view;
     }
